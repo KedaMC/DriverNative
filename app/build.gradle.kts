@@ -9,7 +9,7 @@ android {
 
     signingConfigs {
         create("releaseBuild") {
-            storeFile = file("common_plugin.jks")
+            storeFile = rootProject.file("common_plugin.jks")
             storePassword = "common_plugin"
             keyAlias = "common_plugin"
             keyPassword = "common_plugin"
@@ -36,13 +36,13 @@ android {
         }
         configureEach {
             // Application name
-            resValue("string", "app_name", "Zstd JNI 1.5.7-12 Plugin")
+            resValue("string", "app_name", "ZTSD")
 
             // Package name suffix
             applicationIdSuffix = ".zstd_dh_15712"
 
             // Plugin description shown in the launcher
-            manifestPlaceholders["des"] = "zstd-jni 1.5.7-12 for Distant Horizons"
+            manifestPlaceholders["des"] = "zstd-jni 1.5.7-12-dhcompat"
 
             // JVM native library path
             manifestPlaceholders["environment"] = mutableMapOf<String, String>().apply {
