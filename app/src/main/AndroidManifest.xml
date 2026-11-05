@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:extractNativeLibs="true"
+        android:icon="@drawable/img_app"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="FCLNativePlugin"
+            android:value="true" />
+        <meta-data
+            android:name="des"
+            android:value="${des}" />
+        <meta-data
+            android:name="environment"
+            android:value="${environment}" />
+        <meta-data
+            android:name="minMCVer"
+            android:value="${minMCVer}" />
+        <meta-data
+            android:name="maxMCVer"
+            android:value="${maxMCVer}" />
+
+    </application>
+
+</manifest>
