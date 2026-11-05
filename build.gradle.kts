@@ -43,7 +43,7 @@ android {
             //JVM环境参数配置
             //JVM environment parameter configuration
             manifestPlaceholders["environment"] = mutableMapOf<String,String>().apply {
-                put("ZstdNativePath", "{nativeLibraryDir}libzstd-jni-1.5.7-6-dhcompat.so")
+                put("ZstdNativePath", "{nativeLibraryDir}libzstd-jni_dh-1.5.7-12.so")
             }.run {
                 buildList {
                     this@run.forEach { (key, value) ->
