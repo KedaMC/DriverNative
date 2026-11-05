@@ -24,26 +24,32 @@ android {
         versionName = "1.0"
     }
 
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDirs("src/main/jniLibs")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
         }
         configureEach {
-            //应用名
-            //app name
-            resValue("string","app_name","zstd-dhcompat Plugin")
-            //包名后缀
-            //package name Suffix
-            applicationIdSuffix = ".zstd_dhcompat"
+            // Application name
+            resValue("string", "app_name", "Zstd JNI 1.5.7-12 Plugin")
 
-            //插件包在启动器内显示的名称
-            //Plugin package display name within the launcher
-            manifestPlaceholders["des"] = "zstd-jni 1.5.7-6-dhcompat"
+            // Package name suffix
+            applicationIdSuffix = ".zstd_dh_15712"
 
-            //JVM环境参数配置
-            //JVM environment parameter configuration
-            manifestPlaceholders["environment"] = mutableMapOf<String,String>().apply {
-                put("ZstdNativePath", "{nativeLibraryDir}libzstd-jni-1.5.7-6-dhcompat.so")
+            // Plugin description shown in the launcher
+            manifestPlaceholders["des"] = "zstd-jni 1.5.7-12 for Distant Horizons"
+
+            // JVM native library path
+            manifestPlaceholders["environment"] = mutableMapOf<String, String>().apply {
+                put(
+                    "ZstdNativePath",
+                    "{nativeLibraryDir}libzstd-jni_dh-1.5.7-12.so"
+                )
             }.run {
                 buildList {
                     this@run.forEach { (key, value) ->
@@ -53,10 +59,12 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
